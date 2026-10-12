@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Steve’s Crosswords</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Steve’s Crosswords</h1>
+    <div id="puzzle-list"></div>
+
+    <script>
+    fetch('puzzles.json')
+      .then(r => r.json())
+      .then(puzzles => {
+        const list = document.getElementById('puzzle-list');
+        puzzles.forEach(p => {
+          const link = document.createElement('a');
+          link.href = `puzzle.html?id=${p.id}`;
+          link.textContent = `${p.title} (${p.size})`;
+          list.appendChild(link);
+          list.appendChild(document.createElement('br'));
+        });
+      });
+    </script>
+</body>
+</html>
+I use

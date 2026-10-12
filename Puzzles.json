@@ -1,0 +1,27 @@
+[
+  {
+    "id": "puzzle-001",
+    "title": "Gemini Grid",
+    "date": "2026-09-30",
+    "size": "15x15",
+    "data": {
+      "grid": [
+        "....#....#....",
+        "...##...##...",
+        "...WORDPLAY...",
+        "...##...##...",
+        "....#....#...."
+      ],
+      "clues": {
+        "across": {
+          "1": "Astrological twins",
+          "5": "Your favorite hobby"
+        },
+        "down": {
+          "1": "Crossword constructor’s fuel",
+          "2": "Retired dev’s motto"
+        }
+      }
+    }
+  }
+]

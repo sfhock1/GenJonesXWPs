@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Puzzle</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Steve’s Crosswords</h1>
+    <a href="index.html">Back to puzzles</a>
+</div>
+
+<div class="container">
+
+    <!-- Grid + Title -->
+    <div class="grid-container">
+        <h2 id="title"></h2>
+        <div id="grid"></div>
+    </div>
+
+    <!-- Clue List -->
+    <div class="clue-container">
+        <h3>Across</h3>
+        <ul id="across"></ul>
+
+        <h3>Down</h3>
+        <ul id="down"></ul>
+    </div>
+
+</div>
+
+<!-- UI + Solver Scripts -->
+<script src="js/ui.js"></script>
+<script src="js/solver.js"></script>
+
+<!-- Puzzle Loader -->
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    fetch('puzzles.json')
+        .then(r => r.json())
+        .then(puzzles => puzzles.find(p => p.id === id))
+        .then(puzzle => {
+            document.getElementById('title').textContent = puzzle.title;
+            renderPuzzleUI(puzzle);
+        });
+</script>
+
+</body>
+</html>
